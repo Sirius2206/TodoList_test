@@ -1,38 +1,122 @@
-.App {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+
+  display: flex;
+  justify-content: center;
+  background-color: #eee;
+
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  width: min(95vw, 600px);
+  background-color: #fff;
+  box-shadow: 5px 5px 10px #777;
+  border-radius: .5rem;
+
+  text-align: start
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.main-title {
+  font-size: 5rem;
+  font-weight: 100;
+  color: hsl(29, 73%, 78%);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.input {
+  width: min(95vw, 600px);
+  font-size: min(8vw, 3rem);
+  border: none;
+  border-radius: .5rem .5rem 0 0;
+
+  padding: .5rem
+}
+
+.input::placeholder {
+  color: #ccc;
+  width: 100%;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.todo-elem {
+  cursor: pointer;
+  font-size: 3rem;
+  padding: .5rem;
+
+  border-top: 2px solid #999;
+}
+
+.todo-elem::before {
+  position: relative;
+  top: 5px;
+  display: inline-block;
+  content: " ";
+
+  background-image: url(./assets/active.png);
+  background-size: contain;
+  width: 44px;
+  height: 44px;
+}
+
+
+.todo-completed {
+  color: #999;
+  text-decoration: line-through;
+}
+
+.todo-completed::before {
+  position: relative;
+  top: 5px;
+  display: inline-block;
+  content: " ";
+
+  background-image: url(./assets/completed.png);
+  background-size: contain;
+  width: 44px;
+  height: 44px;
+}
+
+.footer {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: .5rem;
+  border-top: 2px solid #999;
 }
 
-.App-link {
-  color: #61dafb;
+.todo-choose {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.todo-choose li {
+  cursor: pointer;
+}
+
+.todo-clear {
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.btn {
+  cursor: pointer;
+  background-color: #fff;
+  border: none;
+}
+
+.btn-active,
+.todo-clear:active {
+  outline: 2px solid #777;
+  outline-offset: 3px;
 }
