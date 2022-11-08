@@ -7,13 +7,12 @@ type TodoProps = {
   completed: boolean;
 }
 
-
-
 function App() {
   const [todos, setTodos] = useState<TodoProps[]>([]);
   const [mod, setMod] = useState<string>("all")
   const inputRef = useRef<HTMLInputElement | null>(null);
 
+  //Функция добавления новой задачи
   function addTodo(e: FormEvent) {
     const value = inputRef.current!.value;
     e.preventDefault();
@@ -23,6 +22,7 @@ function App() {
     inputRef.current!.value = "";
   }
 
+  //Функция завершения/отмены завершения задания
   function toggleElem(elem: TodoProps) {
     const index = todos.indexOf(elem);
     let newTodos: TodoProps[] = Object.assign([], todos);
@@ -30,15 +30,18 @@ function App() {
     setTodos(newTodos);
   }
 
+  //Фильтрация заданий на выполненные/невыполненные/все
   function filterTodos(todo: TodoProps) {
     if (mod !== "true" && mod !== "false") return todo;
     return mod === "true" ? todo.completed === true : todo.completed === false;
   }
 
+  //Функция удаления выполненных заданий
   function clearCompleted() {
     setTodos(todos.filter(todo => todo.completed !== true))
   }
 
+  //Смена модификатора для фильтрации
   function changeMod(e: React.MouseEvent<HTMLButtonElement, MouseEvent>, newMod: string) {
     const btn: HTMLButtonElement = e.target! as HTMLButtonElement;
     if (btn.classList.contains("btn-active")) return;
@@ -98,13 +101,13 @@ function App() {
             </button>
           </li>
         </ul>
-        <button 
-          className='todo-clear' 
+        <button
+          className='todo-clear'
           data-testid="clear"
           onClick={clearCompleted}
-          >
-            Clear completed
-          </button>
+        >
+          Clear completed
+        </button>
       </footer>
     </div>
   </>

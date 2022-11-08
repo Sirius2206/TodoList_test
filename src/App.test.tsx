@@ -2,6 +2,9 @@ import { render, screen, cleanup } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 import App from './App';
 
+
+
+//Мне еще не приходилось писать тесты, но теперь знаю что буду изучать дальше.
 describe("App tests", () => {
   beforeEach(() => {
     render(<App />);

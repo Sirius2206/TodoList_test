@@ -6,11 +6,9 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-
   display: flex;
   justify-content: center;
   background-color: #eee;
-
   text-align: center;
 }
 
@@ -19,7 +17,6 @@ body {
   background-color: #fff;
   box-shadow: 5px 5px 10px #777;
   border-radius: .5rem;
-
   text-align: start
 }
 
@@ -34,7 +31,6 @@ body {
   font-size: min(8vw, 3rem);
   border: none;
   border-radius: .5rem .5rem 0 0;
-
   padding: .5rem
 }
 
@@ -51,8 +47,8 @@ ul {
   cursor: pointer;
   font-size: 3rem;
   padding: .5rem;
-
   border-top: 2px solid #999;
+  overflow-wrap: break-word;
 }
 
 .todo-elem::before {
@@ -60,7 +56,6 @@ ul {
   top: 5px;
   display: inline-block;
   content: " ";
-
   background-image: url(./assets/active.png);
   background-size: contain;
   width: 44px;
@@ -78,7 +73,6 @@ ul {
   top: 5px;
   display: inline-block;
   content: " ";
-
   background-image: url(./assets/completed.png);
   background-size: contain;
   width: 44px;
